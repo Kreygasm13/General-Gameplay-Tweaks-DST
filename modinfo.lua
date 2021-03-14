@@ -1,5 +1,5 @@
 name = "General Gameplay Tweaks"
-version = "1.12.1 Release"
+version = "1.12.2 - Release"
 
 description = "This mod Tweaks Some of the Crock Pot Recipes, changes to Wurt and Wigfrid's diet, Wurt's vegetable affinity, Bonus for the Wortox's Pomogranate affinity, adds Picky Eater mode, adds tweaks for Warly's Food Memory and adds Portable Wares for everyone. Everything is configurable. Start's with most of the setting disabled so it is wise to configure the mod before playing."
 author = "KreygasmTR"
@@ -10,6 +10,9 @@ dst_compatible = true
 all_clients_require_mod = true
 client_only_mod = false
 
+icon_atlas = "modicon.xml"
+icon = "modicon.tex"
+
 server_filter_tags = {"Food Tweaks", "Cooking", "QOL"}
 	
 
@@ -17,8 +20,8 @@ configuration_options =
 {
 {
         name = "monsterfoodbuff",
-        label = "Monster Food Tweak",
-        hover = "Should Tweak be Enabled? Monster Lasagna restores 75 hunger. Changes Monster Tartare's recipe. Tartare restores 75 Hunger, 5 Health and 10 Sanity.",
+        label = "Monster Food Buff",
+        hover = "Monster Lasagna stats 75 Hunger, -10 Health, -15 Sanity. Tartare restores 75 Hunger, 5 Health and 10 Sanity. Changes Monster Tartare's recipe.",
         options =
         {
             {description = "Enabled", data = true},
@@ -26,6 +29,29 @@ configuration_options =
         },
         default = false,
     },
+	
+	{	
+		name = "lasagnarecipe",
+		label = "Change Lasagna Recipe",
+		hover = "Restrict Lasagna Recipe to Monster Meats",
+		options =	{
+						{description = "Yes", data = true   },
+						{description = "No", data = false   },
+					},
+		default = false,
+	},
+	
+	{	
+		name = "nowarly",
+		label = "No Warly Exclusive Recipes",
+		hover = "Makes it so Warly's foods can be cooked on normal cooking pots",
+		options =	{
+						{description = "Enabled", data = true   },
+						{description = "Disabled", data = false   },
+					},
+		default = false,
+	},
+	
 	
 	{	
 		name = "VanillaCrockBuff",
@@ -39,6 +65,39 @@ configuration_options =
 	},
 	
 	{	
+		name = "webbermonsterfoodbuff",
+		label = "Webber Monster Food Bonus",
+		hover = "Gives Webber bonuses on Monster Foods with excetion of the Durian.",
+		options =	{
+						{description = "Enabled", data = true, hover = "Raw,Cooked,Dried Monster Meat will restore 25 Hunger, Lasagna and Tartare will restore double amount for him."},
+						{description = "Disabled", data = false, hover = "He will not gain any buffs."},
+					},
+		default = false,
+	},
+	
+	{
+	name = "wormwoodhp",
+	label = "Wormwood Food HP Penalty",
+	hover = "Should Wormwood restore HP or lose HP by eating food? And if so in how much rate?",
+	options = {
+	        {description = "0%",   data = 0.00 ,hover = "At rate of 0%. Disabled." },
+			{description = "10%",  data = 0.10 ,hover = "At rate of 10%." },
+			{description = "20%",  data = 0.20 ,hover = "At rate of 20%." },
+			{description = "25%",  data = 0.25 ,hover = "At rate of 25%." },
+			{description = "30%",  data = 0.30 ,hover = "At rate of 3%." },
+			{description = "40%",  data = 0.40 ,hover = "At rate of 40%." },
+			{description = "50%",  data = 0.50 ,hover = "At rate of 50%." },
+			{description = "60%",  data = 0.60 ,hover = "At rate of 60%." },
+			{description = "70%",  data = 0.70 ,hover = "At rate of 70%." },
+			{description = "75%",  data = 0.75 ,hover = "At rate of 75%." },
+			{description = "80%",  data = 0.80 ,hover = "At rate of 80%." },
+			{description = "90%",  data = 0.90 ,hover = "At rate of 90%." },
+			{description = "100%", data = 1.00 ,hover = "At rate of 100%."},
+		},
+	default = 0.00,
+    },
+	
+	{	
 		name = "omnivorewurt",
 		label = "Omnivore Wurt",
 		hover = "Change Wurt's Diet to omnivore?",
@@ -50,9 +109,30 @@ configuration_options =
 	},
 	
 	{	
+		name = "wurtmeatpenalty",
+		label = "Omnivore Wurt - Meat Penalty",
+		hover = "Should be Omnivore Wurt is on, should Wurt have hunger rate on meat foods?",
+		options =	{
+			{description = "10%",  data = 0.10 ,hover = "At rate of 10%." },
+			{description = "20%",  data = 0.20 ,hover = "At rate of 20%." },
+			{description = "25%",  data = 0.25 ,hover = "At rate of 25%." },
+			{description = "30%",  data = 0.30 ,hover = "At rate of 30%." },
+			{description = "40%",  data = 0.40 ,hover = "At rate of 40%." },
+			{description = "50%",  data = 0.50 ,hover = "At rate of 50%." },
+			{description = "60%",  data = 0.60 ,hover = "At rate of 60%." },
+			{description = "70%",  data = 0.70 ,hover = "At rate of 70%." },
+			{description = "75%",  data = 0.75 ,hover = "At rate of 75%." },
+			{description = "80%",  data = 0.80 ,hover = "At rate of 80%." },
+			{description = "90%",  data = 0.90 ,hover = "At rate of 90%." },
+			{description = "100%", data = 1.00 ,hover = "At rate of 100%."},
+					},
+		default = 1.00,
+	},
+	
+	{	
 		name = "keepwurtveggieaffinity",
 		label = "Wurt Veggie Bonus",
-		hover = "Should be Wurt's bonus should be kept? Omnivore Wurt must be enabled to work",
+		hover = "Should be Omnivore Wurt is on, should be Wurt's bonus should be kept?",
 		options =	{
 						{description = "Enabled", data = true, hover = "Enable the Veggie Boost"},
 						{description = "Disabled", data = false, hover = "Disable the Veggie Boost" },
@@ -74,7 +154,7 @@ configuration_options =
 	{	
 		name = "wortoxpomegranate",
 		label = "Increase Wortox's Pomogranate Bonus",
-		hover = "Increases Wortox's bonus when consuming pomogranate. Pick Eater mode must be disabled in order this to work.",
+		hover = "Should be picky eater mode is disabled, Increase Wortox's bonus when consuming pomogranate?",
 		options =	{
 						{description = "Enabled", data = true },
 						{description = "Disabled", data = false },
