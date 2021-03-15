@@ -1,7 +1,7 @@
 name = "General Gameplay Tweaks"
-version = "1.12.2 - Release"
+version = "1.13.2 - Release"
 
-description = "This mod Tweaks Some of the Crock Pot Recipes, changes to Wurt and Wigfrid's diet, Wurt's vegetable affinity, Bonus for the Wortox's Pomogranate affinity, adds Picky Eater mode, adds tweaks for Warly's Food Memory and adds Portable Wares for everyone. Everything is configurable. Start's with most of the setting disabled so it is wise to configure the mod before playing."
+description = "This mod Tweaks Some of the Crock Pot Recipes, changes to Wurt and Wigfrid's diet, Wurt's vegetable affinity, Bonus for the Wortox's Pomogranate affinity, adds Picky Eater mode, adds tweaks for Warly's Food Memory and adds Portable Wares for everyone and etc. Everything is configurable. The Mod starts with most of the settings disabled so it is wise to configure the mod before playing."
 author = "KreygasmTR"
 
 api_version = 10
@@ -13,7 +13,7 @@ client_only_mod = false
 icon_atlas = "modicon.xml"
 icon = "modicon.tex"
 
-server_filter_tags = {"Food Tweaks", "Cooking", "QOL"}
+server_filter_tags = {"Tweaks", "Cooking", "QOL","General Gameplay Tweaks" }
 	
 
 configuration_options =
@@ -33,7 +33,7 @@ configuration_options =
 	{	
 		name = "lasagnarecipe",
 		label = "Change Lasagna Recipe",
-		hover = "Restrict Lasagna Recipe to Monster Meats",
+		hover = "Restrict Lasagna Recipe to Monster Meats?",
 		options =	{
 						{description = "Yes", data = true   },
 						{description = "No", data = false   },
@@ -42,9 +42,20 @@ configuration_options =
 	},
 	
 	{	
+		name = "goodietweak",
+		label = "Goodie Tweak",
+		hover = "Add Food Tag 'GOODIE' to Guacamole, Waffles, Ice Cream, Eggs, Grim Gallette, Fresh Fruit Crepes and Bone Bouillon. Changes quotes accordingly.",
+		options =	{
+						{description = "Enabled", data = true   },
+						{description = "Disabled", data = false   },
+					},
+		default = false,
+	},
+	
+	{	
 		name = "nowarly",
 		label = "No Warly Exclusive Recipes",
-		hover = "Makes it so Warly's foods can be cooked on normal cooking pots",
+		hover = "Makes it so Warly's foods can be cooked on normal cooking pots.",
 		options =	{
 						{description = "Enabled", data = true   },
 						{description = "Disabled", data = false   },
@@ -54,11 +65,11 @@ configuration_options =
 	
 	
 	{	
-		name = "VanillaCrockBuff",
-		label = "Crockpot Dish Buffs",
-		hover = "Improves upon a few of the less used crockpot foods.",
+		name = "preparedfoodbuff",
+		label = "Prepared Dish Buffs",
+		hover = "Improves upon a few of the less used crockpot foods. Recommended with Picky Eater Mode.",
 		options =	{
-						{description = "Enabled", data = true, hover = "To name a few, Fish Tacos, Fruit Medley, Guacamole and Unagi."},
+						{description = "Enabled", data = true, hover = "Modification to crockpot foods will be made. ( Recommended with Picky Eater Mode. ) "},
 						{description = "Disabled", data = false, hover = "No modifications to crockpot foods."},
 					},
 		default = false,
@@ -153,7 +164,7 @@ configuration_options =
 	
 	{	
 		name = "wortoxpomegranate",
-		label = "Increase Wortox's Pomogranate Bonus",
+		label = "Wortox's Pomogranate Bonus",
 		hover = "Should be picky eater mode is disabled, Increase Wortox's bonus when consuming pomogranate?",
 		options =	{
 						{description = "Enabled", data = true },

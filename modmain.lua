@@ -5,9 +5,25 @@ local STRINGS = GLOBAL.STRINGS
 local wurtmeatpenalty = GetModConfigData("wurtmeatpenalty")
 local wormwoodhp = GetModConfigData("wormwoodhp")
 local FOODTYPE = GLOBAL.FOODTYPE
+local TUNING = GLOBAL.TUNING
+local warlymem = GetModConfigData("Warlymem")
+
+makeGoodie = {"icecream", "waffles", "bird_egg","bird_egg_cooked","tallbirdegg","tallbirdegg_cooked", "guacamole", "freshfruitcrepes", "bonesoup", "nightmarepie" }
 
 
-
+if GetModConfigData("goodietweak") == true then
+for k,v in pairs(makeGoodie) do
+	AddPrefabPostInit(v, function(inst)
+		if not GLOBAL.TheWorld.ismastersim then
+			return inst
+		end
+	inst.components.edible.foodtype = GLOBAL.FOODTYPE.GOODIES
+	end)
+end
+STRINGS.CHARACTERS.WURT.DESCRIBE.BIRD_EGG_COOKED = "It dead."
+STRINGS.CHARACTERS.WURT.DESCRIBE.TALLBIRDEGG_COOKED = "It dead."
+STRINGS.CHARACTERS.WURT.DESCRIBE.BONESOUP = "It smells weird, florp."
+end
 
 AddPrefabPostInit("wormwood", function(inst)
 local function OnEat(inst, food)
@@ -44,16 +60,80 @@ end
 end)
 end
 
-if GetModConfigData("VanillaCrockBuff") == true then
-dishes.fruitmedley.hunger = TUNING.CALORIES_LARGE
-dishes.fruitmedley.sanity = TUNING.SANITY_TINY * 2
-dishes.fruitmedley.hunger = TUNING.CALORIES_HUGE
-dishes.fruitmedley.perishtime = TUNING.PERISH_SLOW
-dishes.unagi.hunger = TUNING.CALORIES_LARGE
-dishes.guacamole.sanity = TUNING.SANITY_TINY
-dishes.guacamole.hunger = TUNING.CALORIES_HUGE*1.5
-dishes.guacamole.health = TUNING.HEALING_SMALL
-dishes.hotchili.hunger = TUNING.CALORIES_SMALL*5
+if GetModConfigData("preparedfoodbuff") == true then
+dishes.fruitmedley.sanity = 25
+dishes.fruitmedley.hunger = 45
+dishes.fruitmedley.perishtime = TUNING.PERISH_FAST* 2
+dishes.waffles.hunger = 45
+dishes.waffles.sanity = 15
+dishes.waffles.perishtime = TUNING.PERISH_FAST* 2
+dishes.pumpkincookie.sanity = 20
+dishes.pumpkincookie.hunger = 45
+dishes.perogies.hunger = 45
+dishes.unagi.hunger = 37.5
+dishes.guacamole.hunger = 50
+dishes.hotchili.hunger = 75
+dishes.surfnturf.sanity = 30
+dishes.surfnturf.hunger = 45
+dishes.lobsterdinner.hunger = 45
+dishes.trailmix.hunger = 25
+dishes.trailmix.health = 25
+dishes.icecream.hunger = 37.25
+dishes.icecream.perishtime = TUNING.PERISH_SUPERFAST* 3
+dishes.seafoodgumbo.sanity = 20
+dishes.seafoodgumbo.hunger = 50
+dishes.seafoodgumbo.health = 35	
+dishes.sweettea.hunger = 10
+dishes.sweettea.health = 10
+dishes.sweettea.sanity = 30
+dishes.salsa.hunger = 32.5
+dishes.salsa.health = 5
+dishes.salsa.sanity = 30
+dishes.frogglebunwich.hunger = 50
+dishes.fishtacos.hunger = 50
+dishes.ratatouille.health = 5
+dishes.ratatouille.hunger = 32.5
+dishes.watermelonicle.hunger = 17.5
+dishes.watermelonicle.health = 5
+dishes.watermelonicle.perishtime = TUNING.PERISH_SUPERFAST* 3
+dishes.flowersalad.hunger = 25
+dishes.flowersalad.perishtime = TUNING.PERISH_FAST* 2
+dishes.taffy.hunger = 22.5
+dishes.taffy.health = 0
+dishes.taffy.sanity = 20
+dishes.turkeydinner.health = 20
+dishes.turkeydinner.perishtime = TUNING.PERISH_FAST* 2
+dishes.jellybean.sanity = 20
+dishes.jellybean.hunger = 12.25
+dishes.leafymeatsouffle.hunger = 56,25
+dishes.leafymeatsouffle.perishtime = TUNING.PERISH_FAST* 2
+dishes.shroomcake.hunger = 50
+dishes.stuffedeggplant.sanity = 10
+dishes.stuffedeggplant.hunger = 45
+dishes.stuffedeggplant.health = 15
+dishes.leafymeatburger.sanity = 30
+dishes.leafymeatburger.hunger = 45
+dishes.lobsterbisque.hunger = 37.5
+dishes.vegstinger.sanity = 25
+dishes.vegstinger.hunger = 37.5
+dishes.vegstinger.health = 10
+dishes.leafymeatburger.sanity = 30
+dishes.leafymeatburger.hunger = 40
+dishes.leafymeatburger.perishtime = TUNING.PERISH_FAST* 2
+dishes.pepperpopper.hunger = 37.5
+dishes.asparagussoup.hunger = 37.5
+dishes.bananapop.sanity = 30
+dishes.bananapop.hunger = 25
+dishes.ceviche.sanity = 10
+dishes.ceviche.hunger = 37.5
+disheswarly.gazpacho.hunger = 50
+disheswarly.nightmarepie.hunger = 37.5
+disheswarly.dragonchilisalad.hunger = 21.875
+disheswarly.dragonchilisalad.health = 0
+disheswarly.potatosouffle.hunger = 60
+disheswarly.frogfishbowl.hunger = 50
+disheswarly.frogfishbowl.health = 10
+disheswarly.frogfishbowl.sanity = 0
 end
 
 if GetModConfigData("omnivorewurt") == true then
@@ -179,9 +259,9 @@ AddPrefabPostInit("wortox", function(inst)
 end)
 end
 
-local warlymem = GetModConfigData("Warlymem")
-
+if GetModConfigData("Crockonly") == true or false then
 TUNING.WARLY_SAME_OLD_COOLDOWN = TUNING.TOTAL_DAY_TIME * warlymem
+end
 
 if GetModConfigData("Crockonly") == true then
 AddPrefabPostInitAny(function(inst)
