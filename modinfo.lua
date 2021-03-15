@@ -31,17 +31,6 @@ configuration_options =
     },
 	
 	{	
-		name = "lasagnarecipe",
-		label = "Change Lasagna Recipe",
-		hover = "Restrict Lasagna Recipe to Monster Meats?",
-		options =	{
-						{description = "Yes", data = true   },
-						{description = "No", data = false   },
-					},
-		default = false,
-	},
-	
-	{	
 		name = "goodietweak",
 		label = "Goodie Tweak",
 		hover = "Add Food Tag 'GOODIE' to Guacamole, Waffles, Ice Cream, Eggs, Grim Gallette, Fresh Fruit Crepes and Bone Bouillon. Changes quotes accordingly.",
