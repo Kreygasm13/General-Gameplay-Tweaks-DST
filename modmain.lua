@@ -44,10 +44,6 @@ disheswarly.monstertartare.sanity = 10
 disheswarly.monstertartare.test = function(cooker, names, tags) return (names.monstermeat  == 2 or names.monstermeat_dried  == 2 or names.monstermeat_cooked  == 2 ) and tags.veggie == 1 and tags.egg == 1 end
 end
 
-if GetModConfigData("lasagnarecipe") == true then
-dishes.monsterlasagna.test = function(cooker, names, tags) return tags.monster and ( names.monstermeat or names.monstermeat_dried or names.monstermeat_cooked ) and ( names.monstermeat >= 2 or names.monstermeat_dried >= 2 or names.monstermeat_cooked  >= 2 ) and not tags.inedibles end
-end
-
 if GetModConfigData("webbermonsterfoodbuff") == true then
 AddPrefabPostInit("webber", function(inst)
     if inst.components.foodaffinity then
