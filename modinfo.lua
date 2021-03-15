@@ -1,5 +1,5 @@
 name = "General Gameplay Tweaks"
-version = "1.13.2 - Release"
+version = "1.13.3 - Release"
 
 description = "This mod Tweaks Some of the Crock Pot Recipes, changes to Wurt and Wigfrid's diet, Wurt's vegetable affinity, Bonus for the Wortox's Pomogranate affinity, adds Picky Eater mode, adds tweaks for Warly's Food Memory and adds Portable Wares for everyone and etc. Everything is configurable. The Mod starts with most of the settings disabled so it is wise to configure the mod before playing."
 author = "KreygasmTR"
@@ -111,20 +111,20 @@ configuration_options =
 	{	
 		name = "wurtmeatpenalty",
 		label = "Omnivore Wurt - Meat Penalty",
-		hover = "Should be Omnivore Wurt is on, should Wurt have hunger rate on meat foods?",
+		hover = "Should be Omnivore Wurt is on, should Wurt have hunger restoration rate on meat foods?",
 		options =	{
-			{description = "10%",  data = 0.10 ,hover = "At rate of 10%." },
-			{description = "20%",  data = 0.20 ,hover = "At rate of 20%." },
-			{description = "25%",  data = 0.25 ,hover = "At rate of 25%." },
-			{description = "30%",  data = 0.30 ,hover = "At rate of 30%." },
-			{description = "40%",  data = 0.40 ,hover = "At rate of 40%." },
-			{description = "50%",  data = 0.50 ,hover = "At rate of 50%." },
-			{description = "60%",  data = 0.60 ,hover = "At rate of 60%." },
-			{description = "70%",  data = 0.70 ,hover = "At rate of 70%." },
-			{description = "75%",  data = 0.75 ,hover = "At rate of 75%." },
-			{description = "80%",  data = 0.80 ,hover = "At rate of 80%." },
-			{description = "90%",  data = 0.90 ,hover = "At rate of 90%." },
-			{description = "100%", data = 1.00 ,hover = "At rate of 100%."},
+			{description = "10%",  data = 0.10 ,hover = "At hunger restoration rate of 10%." },
+			{description = "20%",  data = 0.20 ,hover = "At hunger restoration rate of 20%." },
+			{description = "25%",  data = 0.25 ,hover = "At hunger restoration rate of 25%." },
+			{description = "30%",  data = 0.30 ,hover = "At hunger restoration rate of 30%." },
+			{description = "40%",  data = 0.40 ,hover = "At hunger restoration rate of 40%." },
+			{description = "50%",  data = 0.50 ,hover = "At hunger restoration rate of 50%." },
+			{description = "60%",  data = 0.60 ,hover = "At hunger restoration rate of 60%." },
+			{description = "70%",  data = 0.70 ,hover = "At hunger restoration rate of 70%." },
+			{description = "75%",  data = 0.75 ,hover = "At hunger restoration rate of 75%." },
+			{description = "80%",  data = 0.80 ,hover = "At hunger restoration rate of 80%." },
+			{description = "90%",  data = 0.90 ,hover = "At hunger restoration rate of 90%." },
+			{description = "100%", data = 1.00 ,hover = "At hunger restoration rate of 100%."},
 					},
 		default = 1.00,
 	},
